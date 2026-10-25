@@ -1,15 +1,18 @@
 {
   "name": "devin",
   "version": "1.0.0",
-  "description": "",
+  "description": "A learning-focused coding agent with a hand-written DeepSeek tool loop",
   "main": "index.js",
   "scripts": {
-    "start": "node --env-file=.env --import tsx src/index.ts",
-    "typecheck": "tsc --noEmit"
+    "start": "node --env-file-if-exists=.env --import tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "demo": "node --env-file-if-exists=.env --import tsx src/index.ts --repo examples/buggy-repo --once --shell local --apply \"Find and fix the bugs. Run node --test to verify your changes.\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": { "node": ">=24" },
   "type": "module",
   "devDependencies": {
     "@types/node": "^26.6.5",
